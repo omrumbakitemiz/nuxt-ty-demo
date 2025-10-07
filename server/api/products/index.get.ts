@@ -2,6 +2,10 @@
 // This runs on the server and can be accessed at /api/products
 
 export default defineEventHandler((event) => {
+  // 🎯 PROOF: This log appears in SERVER terminal, NOT browser console!
+  console.log('🔥 [SERVER] GET /api/products called at:', new Date().toISOString())
+  console.log('🔥 [SERVER] This log is only visible in your terminal, not in browser DevTools!')
+
   // Simulate database data
   const products = [
     {
@@ -98,6 +102,8 @@ export default defineEventHandler((event) => {
 
   // You could add query parameters here, e.g., filtering, pagination
   // const query = getQuery(event)
+
+  console.log(`🔥 [SERVER] Returning ${products.length} products`)
 
   return products
 })

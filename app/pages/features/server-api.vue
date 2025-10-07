@@ -11,6 +11,7 @@
         <li><strong>File becomes API endpoint</strong> automatically</li>
         <li><strong>Full Node.js backend</strong> capabilities</li>
         <li><strong>Connect to databases</strong>, call external APIs, etc.</li>
+        <li><strong>🔥 Proof:</strong> Server logs appear in terminal, not browser!</li>
       </ul>
     </template>
 
@@ -115,6 +116,23 @@
           </div>
         </div>
 
+        <!-- Server-Side Proof -->
+        <div class="bg-green-50 border-l-4 border-green-500 rounded-lg p-4">
+          <h5 class="font-semibold text-green-900 mb-2">🔥 Proof It Runs on Server:</h5>
+          <p class="text-sm text-green-800 mb-3">
+            Click the "Call API" button above, then check your terminal where <code class="bg-green-100 px-2 py-1 rounded">npm run dev</code> is running.
+          </p>
+          <div class="bg-green-100 rounded p-3 font-mono text-xs text-green-900">
+            <div>🔥 [SERVER] GET /api/products called at: 2025-01-07T...</div>
+            <div>🔥 [SERVER] This log is only visible in your terminal!</div>
+            <div>🔥 [SERVER] Returning 9 products</div>
+          </div>
+          <p class="text-xs text-green-700 mt-3">
+            ✅ These logs appear in your terminal, NOT in browser DevTools!<br/>
+            ✅ This proves the code runs on the server (Node.js), not the client.
+          </p>
+        </div>
+
         <!-- Response Time -->
         <div v-if="responseTime" class="bg-indigo-50 rounded-lg p-4">
           <p class="text-sm font-semibold text-indigo-900">
@@ -211,7 +229,10 @@ const apiStructure = `server/api/
 
 const apiCode = `// server/api/products/index.get.ts
 export default defineEventHandler((event) => {
-  // 🎯 This code runs on the SERVER (Node.js environment)
+  // 🎯 PROOF: This code runs on the SERVER (Node.js environment)
+  // These console.logs appear in your TERMINAL, NOT browser console!
+  console.log('🔥 [SERVER] GET /api/products called at:', new Date().toISOString())
+  console.log('🔥 [SERVER] This log is only visible in your terminal!')
 
   // You can:
   // - Connect to databases (PostgreSQL, MongoDB, etc.)
@@ -234,8 +255,7 @@ export default defineEventHandler((event) => {
     // ... 8 more products (abbreviated for clarity)
   ]
 
-  // Optional: Add query parameters, filtering, pagination
-  // const query = getQuery(event)
+  console.log(\`🔥 [SERVER] Returning \${products.length} products\`)
 
   return products
 })`

@@ -171,29 +171,29 @@
           </div>
         </NuxtLink>
 
-        <!-- Feature 6: Component System -->
+        <!-- Feature 6: Server Components -->
         <NuxtLink
           to="/features/components"
           class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-transparent hover:border-teal-500"
         >
           <div class="bg-gradient-to-br from-teal-500 to-green-600 p-6 text-white">
-            <div class="text-4xl mb-3">🧩</div>
-            <h3 class="text-2xl font-bold mb-2">Component System</h3>
-            <p class="text-teal-100 text-sm">Reusable Vue components</p>
+            <div class="text-4xl mb-3">🖥️</div>
+            <h3 class="text-2xl font-bold mb-2">Server Components</h3>
+            <p class="text-teal-100 text-sm">Zero-JS server-only components</p>
           </div>
           <div class="p-6">
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
-                Auto-imported components
+                Runs only on server
               </li>
               <li class="flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
-                Props & slots
+                Zero JavaScript to client
               </li>
               <li class="flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
-                Live component demo
+                Perfect for heavy data
               </li>
             </ul>
             <div class="mt-4 text-teal-600 font-semibold group-hover:translate-x-2 transition-transform">

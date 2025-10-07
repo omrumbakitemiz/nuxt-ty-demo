@@ -4,6 +4,9 @@
 export default defineEventHandler((event) => {
   const id = parseInt(getRouterParam(event, 'id') || '0')
 
+  // 🎯 PROOF: This log appears in SERVER terminal, NOT browser console!
+  console.log(`🔥 [SERVER] GET /api/products/${id} called at:`, new Date().toISOString())
+
   // Same data as in index.get.ts (in production, this would be a database call)
   const products = [
     {
@@ -101,11 +104,14 @@ export default defineEventHandler((event) => {
   const product = products.find(p => p.id === id)
 
   if (!product) {
+    console.log(`🔥 [SERVER] Product ${id} NOT FOUND`)
     throw createError({
       statusCode: 404,
       statusMessage: 'Product not found'
     })
   }
+
+  console.log(`🔥 [SERVER] Returning product: ${product.name}`)
 
   return product
 })

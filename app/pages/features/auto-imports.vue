@@ -48,11 +48,21 @@
 
         <!-- Component Example -->
         <div>
-          <h4 class="text-sm font-semibold text-gray-700 mb-2">🧩 Custom Component:</h4>
+          <h4 class="text-sm font-semibold text-gray-700 mb-2">🧩 Component Definition:</h4>
           <CodeDisplay
             :code="componentCode"
             language="vue"
-            filename="app/components/MyButton.vue"
+            filename="app/components/ProductCard.vue"
+          />
+        </div>
+
+        <!-- Component Usage Example -->
+        <div>
+          <h4 class="text-sm font-semibold text-gray-700 mb-2">📱 Using Without Import:</h4>
+          <CodeDisplay
+            :code="componentUsageCode"
+            language="vue"
+            filename="Any page or component"
           />
         </div>
       </div>
@@ -236,20 +246,85 @@ export const useCounter = (initialValue = 0) => {
 // No need to import it in your components
 // The readonly() wrapper is a best practice for encapsulation`
 
-const componentCode = `<!-- app/components/MyButton.vue -->
+const componentCode = `<!-- app/components/ProductCard.vue -->
 <template>
-  <button class="my-button">
-    <slot />
-  </button>
+  <NuxtLink
+    :to="\`/products/\${product.id}\`"
+    class="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden group"
+  >
+    <!-- Product Image Area -->
+    <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-8 flex items-center justify-center h-48 group-hover:scale-105 transition">
+      <span class="text-6xl">{{ product.emoji }}</span>
+    </div>
+
+    <!-- Product Info -->
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-semibold text-indigo-600 uppercase bg-indigo-50 px-2 py-1 rounded">
+          {{ product.category }}
+        </span>
+        <span class="text-yellow-500">{{ '⭐'.repeat(product.rating) }}</span>
+      </div>
+
+      <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition">
+        {{ product.name }}
+      </h3>
+
+      <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+        {{ product.description }}
+      </p>
+
+      <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-indigo-600">` + '$' + `{{ product.price }}</span>
+        <span class="text-sm text-gray-500">{{ product.stock }} in stock</span>
+      </div>
+    </div>
+  </NuxtLink>
 </template>
 
-<style scoped>
-.my-button {
-  /* styles */
+<script setup lang="ts">
+// 🎯 No imports needed! defineProps, interface - all auto-imported
+interface Product {
+  id: number
+  name: string
+  category: string
+  price: number
+  rating: number
+  stock: number
+  emoji: string
+  description: string
 }
-</style>
 
-<!-- ✅ This component is automatically available everywhere! -->
-<!-- Just use <MyButton> in any template -->`
+defineProps<{ product: Product }>()
+<\/script>`
+
+const componentUsageCode = `<template>
+  <div>
+    <h1>Products</h1>
+
+    <!-- 🎯 NO IMPORT NEEDED! ProductCard is auto-imported -->
+    <ProductCard :product="exampleProduct" />
+  </div>
+</template>
+
+<script setup>
+// 🎯 Notice: NO import statement for ProductCard!
+// import ProductCard from '~/components/ProductCard.vue' ❌ Not needed!
+
+// ProductCard is automatically available - just use it!
+const exampleProduct = {
+  id: 1,
+  name: 'Auto-Imported Example',
+  category: 'demo',
+  price: 49.99,
+  rating: 5,
+  stock: 100,
+  emoji: '🎨',
+  description: 'This component is auto-imported! No import statement needed.'
+}
+<\/script>
+
+// ✅ Key Point: Component is used directly without importing!
+// This is the EXACT same data shown in the demo on the right →`
 </script>
 
