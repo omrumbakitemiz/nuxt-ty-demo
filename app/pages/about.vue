@@ -5,7 +5,7 @@
         <h1 class="text-5xl font-bold text-gray-900 mb-6">About This Demo</h1>
 
         <p class="text-xl text-gray-600 mb-8">
-          This application demonstrates key Nuxt 3 features in action.
+          This application demonstrates key 4 features in action.
         </p>
 
         <div class="space-y-6">
@@ -76,7 +76,7 @@ definePageMeta({
 useHead({
   title: 'About - Nuxt Demo',
   meta: [
-    { name: 'description', content: 'Learn about Nuxt 3 features showcased in this demo' }
+    { name: 'description', content: 'Learn about Nuxt 4 features showcased in this demo' }
   ]
 })
 </script>

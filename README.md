@@ -1,6 +1,6 @@
 # 🚀 Nuxt Interactive Demo
 
-An innovative, self-documenting demo application that showcases Nuxt 3 features by displaying its own source code alongside live examples. Perfect for presentations and learning!
+An innovative, self-documenting demo application that showcases Nuxt 4 features by displaying its own source code alongside live examples. Perfect for presentations and learning!
 
 > **Built with Nuxt 4 Structure:** Uses the new Nuxt 4 directory structure where all application code lives inside the `app/` directory.
 
@@ -212,7 +212,7 @@ Dashboard → Features (in order) → Back to Dashboard → Q&A
 
 ## 🛠️ Technologies Used
 
-- **Nuxt 3** (v4 structure) - Full-stack Vue framework
+- **Nuxt 4** - Full-stack Vue framework
 - **Vue 3** - Progressive JavaScript framework
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first styling
@@ -274,6 +274,6 @@ MIT
 
 ---
 
-**Built with ❤️ to showcase the power of Nuxt 3**
+**Built with ❤️ to showcase the power of Nuxt 4**
 
 For questions or issues, check the [Nuxt documentation](https://nuxt.com) or explore the code!

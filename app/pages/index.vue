@@ -255,7 +255,7 @@
 useHead({
   title: 'Nuxt Interactive Demo - Explore Features',
   meta: [
-    { name: 'description', content: 'Interactive demonstration of Nuxt 3 features with live code examples' }
+    { name: 'description', content: 'Interactive demonstration of Nuxt 4 features with live code examples' }
   ]
 })
 </script>
