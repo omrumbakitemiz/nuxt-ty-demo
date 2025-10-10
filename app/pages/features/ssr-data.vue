@@ -280,7 +280,7 @@
 
         <!-- Refresh Button -->
         <button
-          @click="refresh"
+          @click="refresh() as any"
           class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition font-semibold"
         >
           🔄 Refresh Data (This WILL make an API call)
@@ -381,8 +381,8 @@ const htmlSourcePreview = computed(() => {
   <!-- 🎯 LOOK! Product data is already in HTML -->
   <div id="__nuxt">
     <div class="product">
-      <h3>${firstProduct.name}</h3>
-      <p>$${firstProduct.price}</p>
+      <h3>${firstProduct?.name}</h3>
+      <p>$${firstProduct?.price}</p>
     </div>
     <!-- ... more products ... -->
   </div>

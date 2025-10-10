@@ -77,13 +77,13 @@
         <!-- Server Component Example -->
         <div>
           <h5 class="text-sm font-semibold text-gray-700 mb-2">🖥️ Server Component (Zero JS):</h5>
-          <HeavyDataTable :products="products" />
+          <HeavyDataTable :products="products as any" />
         </div>
 
         <!-- Regular Component Example -->
         <div>
           <h5 class="text-sm font-semibold text-gray-700 mb-2">📱 Regular Component (With JS):</h5>
-          <RegularDataDisplay :products="products" />
+          <RegularDataDisplay :products="products as any" />
         </div>
 
         <!-- Interactive Comparison -->
