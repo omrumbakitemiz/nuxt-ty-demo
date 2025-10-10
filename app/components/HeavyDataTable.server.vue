@@ -66,7 +66,7 @@ const props = defineProps<{
 const processedData = props.products.map(product => {
   // Simulate heavy calculation (this would never run in browser)
   const revenue = product.price * product.stock
-  const computed = `Processed on server at ${new Date().toISOString()}`
+  const computed = `Processed on server at ${new Date().toLocaleString('tr-TR')}`
 
   return {
     id: product.id,
