@@ -38,8 +38,9 @@
       <!-- Non-functional button to prove it's server-only -->
       <button
         class="mt-3 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition text-sm font-semibold"
+				@click="showCount++"
       >
-        🖱️ Click Me! (0 clicks)
+				🖱️ Click Me! ({{ showCount }} clicks)
       </button>
     </div>
   </div>
@@ -61,6 +62,8 @@ const props = defineProps<{
     stock: number
   }>
 }>()
+
+const showCount = ref(0)
 
 // Heavy computation that runs ONLY on server
 const processedData = props.products.map(product => {
